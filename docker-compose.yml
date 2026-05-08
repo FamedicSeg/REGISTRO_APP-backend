@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  backend:
+    build: "./REGISTRO_APP backend"
+    container_name: registro_produccion_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DB_PATH=/app/database/registros.db
+      - NETWORK_PATH=/mnt/formatos
+    volumes:
+      - "./REGISTRO_APP backend/database:/app/database"
+      # ✅ USAR WSL (ESTA ES LA CLAVE)
+      - "/mnt/z/5. Gestión Producción/16. VARIOS/FORMATOS REGISTRO DIGITAL:/mnt/formatos"
+    networks:
+      - registro-network
+    restart: unless-stopped
+
+  frontend:
+    build: "./REGISTRO_APP frontend"
+    container_name: registro_produccion_frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - "./REGISTRO_APP frontend/.env.docker"
+    depends_on:
+      - backend
+    networks:
+      - registro-network
+    volumes:
+      - "./REGISTRO_APP frontend:/app"
+      - /app/node_modules
+
+networks:
+  registro-network:
+    driver: bridge

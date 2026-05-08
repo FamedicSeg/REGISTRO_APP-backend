@@ -1,0 +1,8 @@
+# .gitignore de frontend
+.env
+.env.docker
+.env.local
+.env.*.local
+.env.docker  # Opcional: si no quieres subir la config de Docker
+dist/
+node_modules/
