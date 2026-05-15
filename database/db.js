@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 const bcrypt = require('bcrypt');
 
 // Ruta del archivo de base de datos
@@ -7,6 +8,17 @@ const dbPath =
   process.env.NODE_ENV === 'production'
     ? '/data/registro.db' // Ruta para producción
     : path.resolve(__dirname, 'registro.db');
+
+// Ensure data directory exists before SQLite tries to create the database file
+const dataDir = path.dirname(dbPath);
+if (!fs.existsSync(dataDir)) {
+  try {
+    fs.mkdirSync(dataDir, { recursive: true });
+    console.log(`Created directory: ${dataDir}`);
+  } catch (mkdirErr) {
+    console.error(`Error creating directory ${dataDir}:`, mkdirErr.message);
+  }
+}
 
 // Crear o conectar a la base de datos
 const db = new sqlite3.Database(dbPath, (err) => {
