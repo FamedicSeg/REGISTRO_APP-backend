@@ -3,7 +3,10 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 // Ruta del archivo de base de datos
-const dbPath = path.resolve(__dirname, 'registros.db');
+const dbPath =
+  process.env.NODE_ENV === 'production'
+    ? '/data/registro.db' // Ruta para producción
+    : path.resolve(__dirname, 'registro.db');
 
 // Crear o conectar a la base de datos
 const db = new sqlite3.Database(dbPath, (err) => {

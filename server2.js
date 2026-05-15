@@ -2908,8 +2908,6 @@ app.get("/api/modulos/maquinas", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(` Backend corriendo en puerto ${PORT}`);
-    console.log(` Accesible desde: http://localhost:${PORT}`);
-    console.log(` En Docker: http://0.0.0.0:${PORT}`);
 });
 
 // Función para crear usuarios de prueba (opcional - ya se crean en db.js)
