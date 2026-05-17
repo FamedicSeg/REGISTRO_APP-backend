@@ -19,6 +19,7 @@ app.use(
       "http://192.168.1.46:5173",      // ✅ TU SERVIDOR PRINCIPAL
       "http://192.168.4.147:5173",
       "http://192.168.3.106:5173",
+      /https:\/\/.*\.vercel\.app$/,
       /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:5173$/,  // CUALQUIER IP en la red local
       /https:\/\/.*\.loca\.lt$/,
       /https:\/\/.*\.trycloudflare\.com$/,
