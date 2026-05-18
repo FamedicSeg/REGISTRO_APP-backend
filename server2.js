@@ -38,13 +38,13 @@ app.use(express.urlencoded({ extended: true }));
 const BASE_NETWORK_PATH = process.env.NETWORK_PATH;
 const normalizePath = (p) => p.replace(/\\/g, '/');
 
-const FILE_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "registrosV4.xlsx"));
-const PLAN_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Planificación CONFECCION.xlsx"));
+const FILE_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Registro de Confección o Automáticas RG-GPR-10.xlsx"));
+const PLAN_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Planificación Semanal.xlsx"));
 const PRODUCTOS_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Productos.xlsx"));
 const MODULOS_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Modulos.xlsx"));
 const LOTE_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Lote.xlsx"));
-const INSUMOS_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "INSUMOS.xlsx"));
-const ACTIVIDAD_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "CANTIDADES POR ACTIVIDAD.xlsx"));
+const INSUMOS_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Insumos.xlsx"));
+const ACTIVIDAD_PATH = normalizePath(path.join(BASE_NETWORK_PATH, "Cantidades por Actividad.xlsx"));
 const SHEET_NAME = "Insumos";
 
 console.log("Existe archivo PLAN:", fs.existsSync(PLAN_PATH));
