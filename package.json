@@ -1,15 +1,24 @@
 {
+  "name": "backend-onedrive",
+  "version": "1.0.0",
+  "description": "Backend para integración con OneDrive",
+  "main": "server2.js",
   "scripts": {
-    "start": "node server2.js"
+    "start": "node server2.js",
+    "dev": "nodemon server2.js"
   },
   "dependencies": {
-    "axios": "^1.13.6",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "axios": "^1.16.1",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
-    "dotenv": "^17.3.1",
+    "dotenv": "^17.4.2",
     "exceljs": "^4.4.0",
     "express": "^5.2.1",
     "sqlite3": "^5.1.7",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
